@@ -8,15 +8,15 @@
   <title>InvoiceKita — Generator Invoice Gratis</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
   <style>
-    :root{--ink:#172b45;--muted:#617187;--blue:#245b96;--blue-dark:#194574;--line:#dce4ed;--bg:#f3f6fa;--white:#fff;--red:#b42318}
+    :root{--ink:#172b45;--muted:#617187;--blue:#245b96;--blue-dark:#194574;--line:#dce4ed;--bg:#f3f6fa;--white:#fff;--red:#b42318;--brand:#183b66;--brand-dark:#122e50;--brand-soft:#edf2f7;--brand-border:#244c78}
     *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
-    header{background:#183b66;color:#fff;border-bottom:1px solid #153455}.topbar{max-width:1180px;margin:auto;padding:16px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-size:1.2rem;font-weight:800;color:#fff;text-decoration:none;letter-spacing:.02em}.tagline{color:#d8e4f2;font-size:.9rem}
-    main{max-width:1180px;margin:26px auto;padding:0 18px}.intro{margin-bottom:20px}.intro h1{font-size:clamp(1.6rem,3vw,2.2rem);margin:0 0 5px;color:#183b66}.intro p{margin:0;color:var(--muted)}
+    header{background:var(--brand);color:#fff;border-bottom:1px solid var(--brand-dark)}.topbar{max-width:1180px;margin:auto;padding:16px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-size:1.2rem;font-weight:800;color:#fff;text-decoration:none;letter-spacing:.02em}.tagline{color:#e0e8f2;font-size:.9rem}
+    main{max-width:1180px;margin:26px auto;padding:0 18px}.intro{margin-bottom:20px}.intro h1{font-size:clamp(1.6rem,3vw,2.2rem);margin:0 0 5px;color:var(--brand)}.intro p{margin:0;color:var(--muted)}
     .ad-slot{min-height:90px;padding:12px;margin:18px 0;background:#edf2f7;border:1px dashed #a9b8c9;border-radius:8px;display:flex;justify-content:center;align-items:center;text-align:center;color:#718096;font-size:.82rem}.ad-slot small{display:block}
-    .layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}.panel{background:var(--white);padding:22px;border:1px solid var(--line);border-radius:10px;box-shadow:0 4px 16px #183b6610}.panel h2{margin:0 0 16px;font-size:1.15rem;color:#183b66}.section-title{margin:20px 0 8px;padding-bottom:7px;border-bottom:1px solid var(--line);font-size:.95rem;font-weight:750;color:#294968}.section-title:first-of-type{margin-top:0}
-    .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{min-width:0}.field.full{grid-column:1/-1}label{display:block;margin:0 0 5px;font-weight:650;font-size:.84rem}input,textarea,select{width:100%;padding:10px 11px;border:1px solid #cbd5e1;border-radius:6px;font:inherit;color:var(--ink);background:white}input:focus,textarea:focus,select:focus{outline:3px solid #245b9625;border-color:var(--blue)}textarea{resize:vertical;min-height:72px}
-    .items-head,.item-row{display:grid;grid-template-columns:minmax(0,1fr) 82px 115px 34px;gap:8px;align-items:center}.items-head{margin:8px 0 5px;color:var(--muted);font-size:.75rem;font-weight:700}.item-row{margin-bottom:8px}.item-row input{min-width:0;padding:9px 8px}.remove-btn{border:0;background:#fff0ef;color:var(--red);border-radius:6px;padding:8px;cursor:pointer;font-size:1rem}.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}button{font:inherit;cursor:pointer}.btn{padding:11px 14px;border:0;border-radius:6px;font-weight:750}.btn-primary{background:var(--blue);color:white}.btn-primary:hover{background:var(--blue-dark)}.btn-secondary{background:#eaf0f7;color:#234b76}.btn-add{padding:7px 11px;background:white;color:var(--blue);border:1px solid #9aafc7;border-radius:6px;font-weight:700}.help{font-size:.78rem;color:var(--muted);margin:6px 0 0}.save-row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px}.save-state{font-size:.78rem;color:#476957}.clear-btn{border:0;background:none;color:var(--muted);text-decoration:underline;font-size:.78rem;padding:5px}.logo-controls{display:flex;align-items:center;gap:12px}.logo-controls input{max-width:100%}.logo-thumb{width:50px;height:50px;object-fit:contain;border:1px solid var(--line);border-radius:5px;background:white}.notice{min-height:1.4em;color:var(--red);font-size:.85rem;margin-top:8px}
-    .preview-wrap{overflow:auto}.invoice{background:#fff;border:1px solid var(--line);padding:34px;min-height:500px;color:#24354a}.inv-header{display:flex;justify-content:space-between;align-items:center;gap:16px;border-bottom:2px solid #244c78;padding-bottom:18px}.inv-title{font-size:2rem;font-weight:850;letter-spacing:.04em;color:#183b66}.inv-number{color:#64748b;font-size:.88rem}.sender-preview{text-align:right;font-weight:750;white-space:pre-line}.inv-logo{display:none;max-width:145px;max-height:70px;object-fit:contain;object-position:left center;margin-bottom:8px}.inv-details{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;font-size:.9rem}.inv-details div:last-child{text-align:right}.label-muted{color:#718096;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em}.inv-table{width:100%;border-collapse:collapse;margin:20px 0}.inv-table th{background:#edf2f7;color:#294968;text-align:left;font-size:.82rem}.inv-table th,.inv-table td{padding:10px 8px;border-bottom:1px solid #dfe6ee}.inv-table .right{text-align:right}.totals{margin:16px 0 0 auto;max-width:280px}.total-row{display:flex;justify-content:space-between;padding:5px 0}.grand-total{border-top:2px solid #244c78;margin-top:7px;padding-top:10px;font-weight:850;font-size:1.15rem;color:#183b66}.notes-preview{margin-top:30px;font-size:.88rem;white-space:pre-line}.footer{padding:26px 15px;text-align:center;color:var(--muted);font-size:.83rem}
+    .layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}.panel{background:var(--white);padding:22px;border:1px solid var(--line);border-radius:10px;box-shadow:0 4px 16px #183b6610}.panel h2{margin:0 0 16px;font-size:1.15rem;color:var(--brand)}.section-title{margin:20px 0 8px;padding-bottom:7px;border-bottom:1px solid var(--line);font-size:.95rem;font-weight:750;color:#294968}.section-title:first-of-type{margin-top:0}
+    .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{min-width:0}.field.full{grid-column:1/-1}label{display:block;margin:0 0 5px;font-weight:650;font-size:.84rem}input,textarea,select{width:100%;padding:10px 11px;border:1px solid #cbd5e1;border-radius:6px;font:inherit;color:var(--ink);background:white}input:focus,textarea:focus,select:focus{outline:3px solid color-mix(in srgb,var(--brand) 15%,transparent);border-color:var(--brand)}textarea{resize:vertical;min-height:72px}
+    .items-head,.item-row{display:grid;grid-template-columns:minmax(0,1fr) 82px 115px 34px;gap:8px;align-items:center}.items-head{margin:8px 0 5px;color:var(--muted);font-size:.75rem;font-weight:700}.item-row{margin-bottom:8px}.item-row input{min-width:0;padding:9px 8px}.remove-btn{border:0;background:#fff0ef;color:var(--red);border-radius:6px;padding:8px;cursor:pointer;font-size:1rem}.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}button{font:inherit;cursor:pointer}.btn{padding:11px 14px;border:0;border-radius:6px;font-weight:750}.btn-primary{background:var(--brand);color:white}.btn-primary:hover{background:var(--brand-dark)}.btn-secondary{background:var(--brand-soft);color:var(--brand)}.btn-add{padding:7px 11px;background:white;color:var(--brand);border:1px solid var(--brand-border);border-radius:6px;font-weight:700}.help{font-size:.78rem;color:var(--muted);margin:6px 0 0}.save-row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px}.save-state{font-size:.78rem;color:#476957}.clear-btn{border:0;background:none;color:var(--muted);text-decoration:underline;font-size:.78rem;padding:5px}.logo-controls{display:flex;align-items:center;gap:12px}.logo-controls input{max-width:100%}.logo-thumb{width:50px;height:50px;object-fit:contain;border:1px solid var(--line);border-radius:5px;background:white}.notice{min-height:1.4em;color:var(--red);font-size:.85rem;margin-top:8px}.theme-controls{display:flex;align-items:center;gap:10px}.theme-controls select{flex:1}.theme-controls input[type=color]{width:48px;height:42px;padding:4px;cursor:pointer}.theme-preview{width:18px;height:18px;border-radius:50%;border:1px solid #0002;background:var(--brand);flex:0 0 auto}
+    .preview-wrap{overflow:auto}.invoice{background:#fff;border:1px solid var(--line);padding:34px;min-height:500px;color:#24354a}.inv-header{display:flex;justify-content:space-between;align-items:center;gap:16px;border-bottom:2px solid var(--brand-border);padding-bottom:18px}.inv-title{font-size:2rem;font-weight:850;letter-spacing:.04em;color:var(--brand)}.inv-number{color:#64748b;font-size:.88rem}.sender-preview{text-align:right;font-weight:750;white-space:pre-line}.inv-logo{display:none;max-width:145px;max-height:70px;object-fit:contain;object-position:left center;margin-bottom:8px}.inv-details{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;font-size:.9rem}.inv-details div:last-child{text-align:right}.label-muted{color:#718096;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em}.inv-table{width:100%;border-collapse:collapse;margin:20px 0}.inv-table th{background:var(--brand-soft);color:#294968;text-align:left;font-size:.82rem}.inv-table th,.inv-table td{padding:10px 8px;border-bottom:1px solid #dfe6ee}.inv-table .right{text-align:right}.totals{margin:16px 0 0 auto;max-width:280px}.total-row{display:flex;justify-content:space-between;padding:5px 0}.grand-total{border-top:2px solid var(--brand-border);margin-top:7px;padding-top:10px;font-weight:850;font-size:1.15rem;color:var(--brand)}.notes-preview{margin-top:30px;font-size:.88rem;white-space:pre-line}.footer{padding:26px 15px;text-align:center;color:var(--muted);font-size:.83rem}
     @media(max-width:850px){.layout{grid-template-columns:1fr}.preview-panel{order:2}.form-panel{order:1}}@media(max-width:520px){main{padding:0 12px}.panel{padding:16px}.field-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.items-head,.item-row{grid-template-columns:minmax(0,1fr) 58px 90px 30px;gap:5px}.items-head{font-size:.68rem}.item-row input{font-size:.84rem;padding:8px 5px}.invoice{padding:20px}.inv-title{font-size:1.55rem}.actions{grid-template-columns:1fr}.topbar{padding:13px 15px}.tagline{font-size:.78rem}}
     @media print{body{background:white}.invoice{border:0;padding:0}.ad-slot,header,.intro,.form-panel,.footer,.preview-panel>h2{display:none!important}.layout{display:block}.preview-panel{padding:0;border:0;box-shadow:none}}
   </style>
@@ -38,6 +38,10 @@
           <div class="field"><label for="inv-date">Tanggal</label><input id="inv-date" type="date"></div>
           <div class="field"><label for="due-date">Jatuh tempo (opsional)</label><input id="due-date" type="date"></div>
           <div class="field"><label for="currency">Mata uang</label><select id="currency"><option value="IDR">Rupiah (IDR)</option><option value="USD">US Dollar (USD)</option><option value="EUR">Euro (EUR)</option><option value="SGD">Singapore Dollar (SGD)</option><option value="MYR">Malaysian Ringgit (MYR)</option></select></div>
+        </div>
+        <div class="section-title">Warna brand</div>
+        <div class="field-grid">
+          <div class="field full"><label for="theme-select">Tema invoice</label><div class="theme-controls"><select id="theme-select"><option value="corporate">Corporate Blue</option><option value="emerald">Agency Emerald</option><option value="burgundy">Executive Burgundy</option><option value="charcoal">Modern Charcoal</option><option value="custom">Warna kustom</option></select><input id="custom-color" type="color" value="#183b66" aria-label="Pilih warna brand kustom" title="Pilih warna brand kustom"><span id="theme-preview" class="theme-preview" aria-hidden="true"></span></div><p class="help">Pilih palet siap pakai atau gunakan pemilih warna. Tema diterapkan pada invoice dan PDF.</p></div>
         </div>
         <div class="section-title">Identitas bisnis dan klien</div>
         <div class="field-grid">
@@ -83,15 +87,37 @@
   const $ = (id) => document.getElementById(id);
   const itemsEl = $('items');
   const STORAGE_KEY = 'invoicekita-draft-v1';
+  const THEMES = {
+    corporate: '#183b66',
+    emerald: '#176b55',
+    burgundy: '#792b3d',
+    charcoal: '#374151'
+  };
   let logoData = '';
   let saveTimer;
   const money = (value) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: $('currency').value, maximumFractionDigits: 2 }).format(Number.isFinite(value) ? value : 0);
 
+  function blendHex(hex, amount) {
+    const value = hex.replace('#', '');
+    const channels = [0, 2, 4].map(i => parseInt(value.slice(i, i + 2), 16));
+    const blended = channels.map(channel => Math.round(channel * (1 - amount)).toString(16).padStart(2, '0'));
+    return `#${blended.join('')}`;
+  }
+  function applyTheme(color) {
+    if (!/^#[0-9a-f]{6}$/i.test(color)) color = THEMES.corporate;
+    const root = document.documentElement;
+    root.style.setProperty('--brand', color);
+    root.style.setProperty('--brand-dark', blendHex(color, .28));
+    root.style.setProperty('--brand-border', blendHex(color, .12));
+    root.style.setProperty('--brand-soft', blendHex(color, .93));
+    $('theme-preview').style.backgroundColor = color;
+    $('custom-color').value = color;
+  }
   function collectDraft() {
     const fields = ['inv-num','inv-date','due-date','currency','sender','receiver','sender-detail','receiver-detail','tax','discount','notes'];
     const values = Object.fromEntries(fields.map(id => [id, $(id).value]));
     const items = [...itemsEl.children].map(row => { const inputs = row.querySelectorAll('input'); return { description: inputs[0].value, quantity: inputs[1].value, price: inputs[2].value }; });
-    return { version: 1, values, items, logo: logoData };
+    return { version: 1, values, items, logo: logoData, theme: { preset: $('theme-select').value, color: $('custom-color').value } };
   }
   function saveDraft() {
     clearTimeout(saveTimer);
@@ -108,6 +134,14 @@
       Object.entries(saved.values).forEach(([id, value]) => { if ($(id)) $(id).value = value ?? ''; });
       logoData = typeof saved.logo === 'string' ? saved.logo : '';
       if (logoData) showLogo(logoData);
+      if (saved.theme && typeof saved.theme === 'object') {
+        const preset = Object.hasOwn(THEMES, saved.theme.preset) ? saved.theme.preset : 'custom';
+        const color = /^#[0-9a-f]{6}$/i.test(saved.theme.color || '') ? saved.theme.color : (THEMES[preset] || THEMES.corporate);
+        $('theme-select').value = preset;
+        applyTheme(color);
+      } else {
+        applyTheme(THEMES.corporate);
+      }
       if (Array.isArray(saved.items) && saved.items.length) saved.items.slice(0, 100).forEach(item => addItem(item.description || '', item.quantity || 0, item.price || ''));
       return true;
     } catch (error) { return false; }
@@ -147,6 +181,16 @@
   $('add-item').addEventListener('click', () => addItem());
   document.querySelectorAll('.form-panel input:not([aria-label]), .form-panel textarea, .form-panel select').forEach(el => el.addEventListener('input', updateInvoice));
   $('currency').addEventListener('change', updateInvoice);
+  $('theme-select').addEventListener('change', () => {
+    const preset = $('theme-select').value;
+    if (THEMES[preset]) applyTheme(THEMES[preset]);
+    updateInvoice();
+  });
+  $('custom-color').addEventListener('input', () => {
+    $('theme-select').value = 'custom';
+    applyTheme($('custom-color').value);
+    updateInvoice();
+  });
   $('logo-upload').addEventListener('change', async (event) => {
     const file = event.target.files && event.target.files[0]; if (!file) return;
     if (!['image/png','image/jpeg','image/webp'].includes(file.type) || file.size > 5 * 1024 * 1024) { $('status').textContent = 'Pilih file PNG, JPG, atau WebP dengan ukuran maksimal 5 MB.'; event.target.value = ''; return; }
@@ -172,7 +216,7 @@
   $('print').addEventListener('click', () => window.print());
 
   const hasDraft = loadDraft();
-  if (!hasDraft) { const today = new Date(); $('inv-date').value = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0,10); addItem('Jasa Pembuatan Website & Desain', 1, 1500000); }
+  if (!hasDraft) { const today = new Date(); $('inv-date').value = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0,10); applyTheme(THEMES.corporate); addItem('Jasa Pembuatan Website & Desain', 1, 1500000); }
   updateInvoice();
 </script>
 </body>
