@@ -9,26 +9,24 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
   <style>
     :root{--ink:#172b45;--muted:#617187;--line:#dce4ed;--bg:#f3f6fa;--white:#fff;--red:#b42318;--brand:#183b66;--brand-dark:#122e50;--brand-soft:#edf2f7;--brand-border:#244c78;--table-head-bg:#183b66;--table-head-text:#fff;--table-row-bg:#f5f8fb}
-    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
-    header{background:var(--brand);color:#fff;border-bottom:1px solid var(--brand-dark)}.topbar{max-width:1180px;margin:auto;padding:16px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-size:1.2rem;font-weight:800;color:#fff;text-decoration:none;letter-spacing:.02em}.tagline{color:#e0e8f2;font-size:.9rem}
-    main{max-width:1180px;margin:26px auto;padding:0 18px}.intro{margin-bottom:20px}.intro h1{font-size:clamp(1.6rem,3vw,2.2rem);margin:0 0 5px;color:var(--brand)}.intro p{margin:0;color:var(--muted)}
-    .ad-slot{min-height:90px;padding:12px;margin:18px 0;background:#edf2f7;border:1px dashed #a9b8c9;border-radius:8px;display:flex;justify-content:center;align-items:center;text-align:center;color:#718096;font-size:.82rem}.ad-slot small{display:block}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}header{background:var(--brand);color:#fff;border-bottom:1px solid var(--brand-dark)}.topbar{max-width:1180px;margin:auto;padding:16px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-size:1.2rem;font-weight:800;color:#fff;text-decoration:none}.tagline{color:#e0e8f2;font-size:.9rem}
+    main{max-width:1180px;margin:26px auto;padding:0 18px}.intro{margin-bottom:20px}.intro h1{font-size:clamp(1.6rem,3vw,2.2rem);margin:0 0 5px;color:var(--brand)}.intro p{margin:0;color:var(--muted)}.ad-slot{min-height:90px;padding:12px;margin:18px 0;background:#edf2f7;border:1px dashed #a9b8c9;border-radius:8px;display:flex;justify-content:center;align-items:center;text-align:center;color:#718096;font-size:.82rem}.ad-slot small{display:block}
     .layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}.panel{background:var(--white);padding:22px;border:1px solid var(--line);border-radius:10px;box-shadow:0 4px 16px #183b6610}.panel h2{margin:0 0 16px;font-size:1.15rem;color:var(--brand)}.section-title{margin:20px 0 8px;padding-bottom:7px;border-bottom:1px solid var(--line);font-size:.95rem;font-weight:750;color:#294968}.section-title:first-of-type{margin-top:0}
     .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{min-width:0}.field.full{grid-column:1/-1}label{display:block;margin:0 0 5px;font-weight:650;font-size:.84rem}input,textarea,select{width:100%;padding:10px 11px;border:1px solid #cbd5e1;border-radius:6px;font:inherit;color:var(--ink);background:white}input:focus,textarea:focus,select:focus,.notes-editor:focus{outline:3px solid #245b9625;border-color:var(--brand)}textarea{resize:vertical;min-height:72px}
-    .items-head,.item-row{display:grid;grid-template-columns:minmax(0,1fr) 82px 115px 34px;gap:8px;align-items:center}.items-head{margin:8px 0 5px;color:var(--muted);font-size:.75rem;font-weight:700}.item-row{margin-bottom:8px}.item-row input{min-width:0;padding:9px 8px}.remove-btn{border:0;background:#fff0ef;color:var(--red);border-radius:6px;padding:8px;cursor:pointer;font-size:1rem}.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}button{font:inherit;cursor:pointer}.btn{padding:11px 14px;border:0;border-radius:6px;font-weight:750}.btn-primary{background:var(--brand);color:white}.btn-primary:hover{background:var(--brand-dark)}.btn-secondary{background:#26384d;color:#fff;border:1px solid #26384d}.btn-secondary:hover{background:#17283b;border-color:#17283b;color:#fff}.btn:focus-visible,.btn-add:focus-visible,.note-tool:focus-visible{outline:3px solid #e0a526;outline-offset:2px}.btn-add{padding:7px 11px;background:white;color:var(--brand);border:1px solid var(--brand-border);border-radius:6px;font-weight:700}.help{font-size:.78rem;color:var(--muted);margin:6px 0 0}.save-row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px}.save-state{font-size:.78rem;color:#476957}.clear-btn{border:0;background:none;color:var(--muted);text-decoration:underline;font-size:.78rem;padding:5px}.logo-controls{display:flex;align-items:center;gap:12px}.logo-controls input{max-width:100%}.logo-thumb{width:50px;height:50px;object-fit:contain;border:1px solid var(--line);border-radius:5px;background:white}.notice{min-height:1.4em;color:var(--red);font-size:.85rem;margin-top:8px}.theme-controls{display:flex;align-items:center;gap:10px}.theme-controls select{flex:1}.theme-controls input[type=color]{width:48px;height:42px;padding:4px;cursor:pointer}.theme-preview{width:18px;height:18px;border-radius:50%;border:1px solid #0002;background:var(--brand);flex:0 0 auto}.color-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}.color-control{min-width:0}.color-control input[type=color]{width:100%;height:42px;padding:4px;cursor:pointer}.notes-toolbar{display:flex;align-items:center;gap:6px;margin:0 0 6px}.note-tool{min-width:36px;padding:6px 10px;border:1px solid #bdc9d8;border-radius:5px;background:#fff;color:#243b59;font-weight:700}.note-tool:hover{background:#edf2f7}.notes-editor{min-height:86px;padding:10px 11px;border:1px solid #cbd5e1;border-radius:6px;font:inherit;color:var(--ink);background:#fff;white-space:pre-wrap;overflow-wrap:anywhere}.notes-editor:empty:before{content:attr(data-placeholder);color:#8794a5;pointer-events:none}.notes-editor a{color:var(--brand);text-decoration:underline}
-    .preview-wrap{overflow:auto}.invoice{background:#fff;border:1px solid var(--line);padding:34px;min-height:500px;color:#24354a}.inv-header{display:flex;justify-content:space-between;align-items:center;gap:16px;border-bottom:2px solid var(--brand-border);padding-bottom:18px}.inv-title{font-size:2rem;font-weight:850;letter-spacing:.04em;color:var(--brand)}.inv-number{color:#64748b;font-size:.88rem}.sender-preview{text-align:right;font-weight:750;white-space:pre-line}.inv-logo{display:none;max-width:145px;max-height:70px;object-fit:contain;object-position:left center;margin-bottom:8px}.inv-details{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;font-size:.9rem}.inv-details div:last-child{text-align:right}.label-muted{color:#718096;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em}.inv-table{width:100%;border-collapse:collapse;margin:20px 0}.inv-table th{background:var(--table-head-bg);color:var(--table-head-text);text-align:left;font-size:.82rem}.inv-table td{background:var(--table-row-bg)}.inv-table th,.inv-table td{padding:10px 8px;border-bottom:1px solid #dfe6ee}.inv-table .right{text-align:right}.totals{margin:16px 0 0 auto;max-width:280px}.total-row{display:flex;justify-content:space-between;padding:5px 0}.grand-total{border-top:2px solid var(--brand-border);margin-top:7px;padding-top:10px;font-weight:850;font-size:1.15rem;color:var(--brand)}.notes-preview{margin-top:30px;font-size:.88rem;white-space:pre-wrap;overflow-wrap:anywhere}.notes-preview a{color:var(--brand);text-decoration:underline}.footer{padding:26px 15px;text-align:center;color:var(--muted);font-size:.83rem}
+    .items-head,.item-row{display:grid;grid-template-columns:minmax(0,1fr) 82px 115px 34px;gap:8px;align-items:center}.items-head{margin:8px 0 5px;color:var(--muted);font-size:.75rem;font-weight:700}.item-row{margin-bottom:8px}.item-row input{min-width:0;padding:9px 8px}.remove-btn{border:0;background:#fff0ef;color:var(--red);border-radius:6px;padding:8px;cursor:pointer;font-size:1rem}
+    .actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}button{font:inherit;cursor:pointer}.btn{padding:11px 14px;border:0;border-radius:6px;font-weight:750}.btn-primary{background:var(--brand);color:#fff}.btn-primary:hover{background:var(--brand-dark)}.btn-secondary{background:#26384d;color:#fff;border:1px solid #26384d}.btn-secondary:hover{background:#17283b;border-color:#17283b;color:#fff}.btn:focus-visible,.btn-add:focus-visible,.note-tool:focus-visible{outline:3px solid #e0a526;outline-offset:2px}.btn-add{padding:7px 11px;background:#fff;color:var(--brand);border:1px solid var(--brand-border);border-radius:6px;font-weight:700}.help{font-size:.78rem;color:var(--muted);margin:6px 0 0}.save-row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px}.save-state{font-size:.78rem;color:#476957}.clear-btn{border:0;background:none;color:var(--muted);text-decoration:underline;font-size:.78rem;padding:5px}.logo-controls{display:flex;align-items:center;gap:12px}.logo-controls input{max-width:100%}.logo-thumb{width:50px;height:50px;object-fit:contain;border:1px solid var(--line);border-radius:5px;background:#fff}.notice{min-height:1.4em;color:var(--red);font-size:.85rem;margin-top:8px}
+    .theme-controls{display:flex;align-items:center;gap:10px}.theme-controls select{flex:1}.theme-controls input[type=color],.color-control input[type=color]{height:42px;padding:4px;cursor:pointer}.theme-controls input[type=color]{width:48px}.theme-preview{width:18px;height:18px;border-radius:50%;border:1px solid #0002;background:var(--brand);flex:0 0 auto}.color-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}.color-control{min-width:0}.color-control input[type=color]{width:100%}
+    .notes-toolbar{display:flex;align-items:center;gap:6px;margin:0 0 6px}.note-tool{min-width:36px;padding:6px 10px;border:1px solid #bdc9d8;border-radius:5px;background:#fff;color:#243b59;font-weight:700}.note-tool:hover{background:#edf2f7}.notes-editor{min-height:86px;padding:10px 11px;border:1px solid #cbd5e1;border-radius:6px;font:inherit;color:var(--ink);background:#fff;white-space:pre-wrap;overflow-wrap:anywhere}.notes-editor:empty:before{content:attr(data-placeholder);color:#8794a5;pointer-events:none}.notes-editor a{color:var(--brand);text-decoration:underline}
+    .preview-wrap{overflow:auto}.invoice{background:#fff;border:1px solid var(--line);padding:34px;min-height:500px;color:#24354a}.inv-header{display:flex;justify-content:space-between;align-items:center;gap:16px;border-bottom:2px solid var(--brand-border);padding-bottom:18px}.inv-title{font-size:2rem;font-weight:850;letter-spacing:.04em;color:var(--brand)}.inv-number{color:#64748b;font-size:.88rem}.sender-preview{text-align:right;font-weight:750;white-space:pre-line}.inv-logo{display:none;max-width:145px;max-height:70px;object-fit:contain;object-position:left center;margin-bottom:8px}.inv-details{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;font-size:.9rem}.inv-details div:last-child{text-align:right}.label-muted{color:#718096;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em}.inv-table{width:100%;border-collapse:collapse;margin:20px 0;table-layout:fixed}.inv-table th{background:var(--table-head-bg);color:var(--table-head-text);text-align:left;font-size:.82rem}.inv-table td{background:var(--table-row-bg)}.inv-table th,.inv-table td{padding:10px 8px;border:1px solid #dfe6ee;overflow-wrap:anywhere}.inv-table th:nth-child(1){width:43%}.inv-table th:nth-child(2){width:14%}.inv-table th:nth-child(3){width:21%}.inv-table th:nth-child(4){width:22%}.inv-table .right{text-align:right}.totals{margin:16px 0 0 auto;max-width:280px}.total-row{display:flex;justify-content:space-between;padding:5px 0}.grand-total{border-top:2px solid var(--brand-border);margin-top:7px;padding-top:10px;font-weight:850;font-size:1.15rem;color:var(--brand)}.notes-preview{margin-top:30px;font-size:.88rem;white-space:pre-wrap;overflow-wrap:anywhere}.notes-preview a{color:var(--brand);text-decoration:underline}.footer{padding:26px 15px;text-align:center;color:var(--muted);font-size:.83rem}
     @media(max-width:850px){.layout{grid-template-columns:1fr}.preview-panel{order:2}.form-panel{order:1}}@media(max-width:520px){main{padding:0 12px}.panel{padding:16px}.field-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.items-head,.item-row{grid-template-columns:minmax(0,1fr) 58px 90px 30px;gap:5px}.items-head{font-size:.68rem}.item-row input{font-size:.84rem;padding:8px 5px}.invoice{padding:20px}.inv-title{font-size:1.55rem}.actions{grid-template-columns:1fr}.topbar{padding:13px 15px}.tagline{font-size:.78rem}.color-grid{grid-template-columns:1fr}}
-    @media print{body{background:white}.invoice{border:0;padding:0}.ad-slot,header,.intro,.form-panel,.footer,.preview-panel>h2{display:none!important}.layout{display:block}.preview-panel{padding:0;border:0;box-shadow:none}}
+    @media print{body{background:#fff}.invoice{border:0;padding:0}.ad-slot,header,.intro,.form-panel,.footer,.preview-panel>h2{display:none!important}.layout{display:block}.preview-panel{padding:0;border:0;box-shadow:none}.inv-table th{-webkit-print-color-adjust:exact;print-color-adjust:exact}.inv-table td{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
   </style>
 </head>
 <body>
   <header><div class="topbar"><a class="brand" href="#">InvoiceKita</a><span class="tagline">Invoice profesional — rapi, cepat, mudah</span></div></header>
   <main>
     <section class="intro"><h1>Generator Invoice Gratis</h1><p>Buat invoice bisnis profesional, pratinjau hasilnya, lalu unduh sebagai PDF. Data tersimpan di browser Anda.</p></section>
-
-    <!-- Slot iklan Adsterra: ganti isi slot ini dengan kode unit iklan dari dashboard Adsterra. -->
     <div class="ad-slot" aria-label="Area iklan"><div><strong>Ruang Iklan</strong><small>Tempel kode banner Adsterra Anda di sini</small></div></div>
-
     <div class="layout">
       <section class="panel form-panel" aria-labelledby="form-heading">
         <h2 id="form-heading">Detail Invoice</h2>
@@ -41,266 +39,70 @@
         </div>
         <div class="section-title">Warna brand</div>
         <div class="field-grid">
-          <div class="field full"><label for="theme-select">Tema invoice</label><div class="theme-controls"><select id="theme-select"><option value="corporate">Corporate Blue</option><option value="emerald">Agency Emerald</option><option value="burgundy">Executive Burgundy</option><option value="charcoal">Modern Charcoal</option><option value="custom">Warna kustom</option></select><input id="custom-color" type="color" value="#183b66" aria-label="Pilih warna brand kustom" title="Pilih warna brand kustom"><span id="theme-preview" class="theme-preview" aria-hidden="true"></span></div><p class="help">Pilih palet siap pakai atau gunakan pemilih warna. Tema diterapkan pada invoice dan PDF.</p></div>
-          <div class="field full"><label>Warna tabel invoice</label><div class="color-grid"><div class="color-control"><label for="table-head-bg">Latar header</label><input id="table-head-bg" type="color" value="#183b66"></div><div class="color-control"><label for="table-head-text">Teks header</label><input id="table-head-text" type="color" value="#ffffff"></div><div class="color-control"><label for="table-row-bg">Latar baris</label><input id="table-row-bg" type="color" value="#f5f8fb"></div></div><p class="help">Atur warna header, teks header, dan latar baris tabel satu per satu.</p></div>
+          <div class="field full"><label for="theme-select">Tema invoice</label><div class="theme-controls"><select id="theme-select"><option value="corporate">Corporate Blue</option><option value="emerald">Agency Emerald</option><option value="burgundy">Executive Burgundy</option><option value="charcoal">Modern Charcoal</option><option value="custom">Warna kustom</option></select><input id="custom-color" type="color" value="#183b66" aria-label="Pilih warna brand kustom"><span id="theme-preview" class="theme-preview" aria-hidden="true"></span></div><p class="help">Pilih tema atau warna kustom. Warna tema invoice diterapkan pada PDF.</p></div>
+          <div class="field full"><label>Warna tabel invoice</label><div class="color-grid"><div class="color-control"><label for="table-head-bg">Latar header</label><input id="table-head-bg" type="color" value="#183b66"></div><div class="color-control"><label for="table-head-text">Teks header</label><input id="table-head-text" type="color" value="#ffffff"></div><div class="color-control"><label for="table-row-bg">Latar baris</label><input id="table-row-bg" type="color" value="#f5f8fb"></div></div><p class="help">Warna tabel yang sama digunakan di pratinjau dan PDF.</p></div>
         </div>
         <div class="section-title">Identitas bisnis dan klien</div>
         <div class="field-grid">
-          <div class="field full"><label for="logo-upload">Logo bisnis (opsional, PNG/JPG/WebP, maks. 5 MB)</label><div class="logo-controls"><input id="logo-upload" type="file" accept="image/png,image/jpeg,image/webp"><img id="logo-thumb" class="logo-thumb" alt="Pratinjau logo" hidden></div><p class="help">Logo disimpan hanya di browser ini dan akan tampil pada invoice serta PDF.</p></div>
+          <div class="field full"><label for="logo-upload">Logo bisnis (opsional, PNG/JPG/WebP, maks. 5 MB)</label><div class="logo-controls"><input id="logo-upload" type="file" accept="image/png,image/jpeg,image/webp"><img id="logo-thumb" class="logo-thumb" alt="Pratinjau logo" hidden></div><p class="help">Logo disimpan hanya di browser ini dan ditampilkan pada invoice.</p></div>
           <div class="field"><label for="sender">Nama usaha / pengirim</label><input id="sender" value="Toko Serba Ada"></div>
           <div class="field"><label for="receiver">Nama klien / penerima</label><input id="receiver" value="PT Budi Perkasa"></div>
           <div class="field full"><label for="sender-detail">Alamat atau kontak pengirim (opsional)</label><textarea id="sender-detail" placeholder="Alamat, email, nomor telepon"></textarea></div>
           <div class="field full"><label for="receiver-detail">Alamat atau kontak klien (opsional)</label><textarea id="receiver-detail" placeholder="Alamat, email, nomor telepon"></textarea></div>
         </div>
         <div class="section-title">Produk atau layanan</div>
-        <div class="items-head" aria-hidden="true"><span>Deskripsi</span><span>Jumlah</span><span>Harga satuan</span><span></span></div>
-        <div id="items"></div>
+        <div class="items-head" aria-hidden="true"><span>Deskripsi</span><span>Jumlah</span><span>Harga satuan</span><span></span></div><div id="items"></div>
         <button type="button" class="btn-add" id="add-item">+ Tambah item</button>
-        <div class="field-grid" style="margin-top:14px">
-          <div class="field"><label for="tax">Pajak (%)</label><input id="tax" type="number" min="0" max="100" step="0.01" value="0"></div>
-          <div class="field"><label for="discount">Diskon (nominal)</label><input id="discount" type="number" min="0" step="1" value="0"></div>
-          <div class="field full"><label for="notes-editor">Catatan / instruksi pembayaran (opsional)</label><div class="notes-toolbar" role="toolbar" aria-label="Pemformatan catatan"><button type="button" class="note-tool" data-format="bold" aria-label="Tebalkan" title="Tebalkan"><strong>B</strong></button><button type="button" class="note-tool" data-format="italic" aria-label="Miring" title="Miring"><em>I</em></button><button type="button" class="note-tool" id="add-note-link" aria-label="Tambahkan tautan" title="Tambahkan tautan">🔗</button></div><div id="notes-editor" class="notes-editor" contenteditable="true" role="textbox" aria-label="Catatan invoice" aria-multiline="true" data-placeholder="Terima kasih atas kepercayaan Anda."></div><p class="help">Pilih teks untuk menebalkan, memiringkan, atau menautkannya. Tautan dibuka di tab baru.</p></div>
+        <div class="field-grid" style="margin-top:14px"><div class="field"><label for="tax">Pajak (%)</label><input id="tax" type="number" min="0" max="100" step="0.01" value="0"></div><div class="field"><label for="discount">Diskon (nominal)</label><input id="discount" type="number" min="0" step="1" value="0"></div>
+          <div class="field full"><label for="notes-editor">Catatan / instruksi pembayaran (opsional)</label><div class="notes-toolbar" role="toolbar" aria-label="Pemformatan catatan"><button type="button" class="note-tool" data-format="bold" aria-label="Tebalkan" title="Tebalkan"><strong>B</strong></button><button type="button" class="note-tool" data-format="italic" aria-label="Miring" title="Miring"><em>I</em></button><button type="button" class="note-tool" id="add-note-link" aria-label="Tambahkan tautan" title="Tambahkan tautan">🔗</button></div><div id="notes-editor" class="notes-editor" contenteditable="true" role="textbox" aria-label="Catatan invoice" aria-multiline="true" data-placeholder="Terima kasih atas kepercayaan Anda."></div><p class="help">Pilih teks untuk menebalkan, memiringkan, atau menautkannya.</p></div>
         </div>
         <div class="actions"><button type="button" class="btn btn-primary" id="download">Unduh PDF</button><button type="button" class="btn btn-secondary" id="print">Cetak invoice</button></div>
-        <div class="save-row"><span id="save-state" class="save-state" role="status" aria-live="polite">Draft tersimpan otomatis di browser.</span><button type="button" id="clear-draft" class="clear-btn">Hapus draft tersimpan</button></div>
-        <div id="status" class="notice" role="status" aria-live="polite"></div>
+        <div class="save-row"><span id="save-state" class="save-state" role="status" aria-live="polite">Draft tersimpan otomatis di browser.</span><button type="button" id="clear-draft" class="clear-btn">Hapus draft tersimpan</button></div><div id="status" class="notice" role="status" aria-live="polite"></div>
       </section>
-
-      <section class="panel preview-panel" aria-labelledby="preview-heading">
-        <h2 id="preview-heading">Pratinjau dokumen</h2>
-        <div class="preview-wrap">
-          <article id="invoice-template" class="invoice">
-            <div class="inv-header"><div><div class="inv-title">INVOICE</div><div class="inv-number" id="out-number"></div></div><div><img id="out-logo" class="inv-logo" alt="Logo bisnis"><div class="sender-preview" id="out-sender"></div><div class="sender-preview" id="out-sender-detail" style="font-weight:400;font-size:.82rem"></div></div></div>
-            <div class="inv-details"><div><div class="label-muted">Ditagihkan kepada</div><strong id="out-receiver"></strong><div id="out-receiver-detail" style="white-space:pre-line"></div></div><div><div class="label-muted">Tanggal invoice</div><div id="out-date"></div><div id="due-wrap" style="margin-top:8px"><div class="label-muted">Jatuh tempo</div><div id="out-due"></div></div></div></div>
-            <table class="inv-table"><thead><tr><th>Deskripsi</th><th class="right">Jumlah</th><th class="right">Harga</th><th class="right">Total</th></tr></thead><tbody id="out-items"></tbody></table>
-            <div class="totals"><div class="total-row"><span>Subtotal</span><strong id="out-subtotal"></strong></div><div class="total-row" id="tax-row"><span id="out-tax-label">Pajak</span><strong id="out-tax"></strong></div><div class="total-row" id="discount-row"><span>Diskon</span><strong id="out-discount"></strong></div><div class="total-row grand-total"><span>Total</span><strong id="out-total"></strong></div></div>
-            <div class="notes-preview" id="out-notes"></div>
-          </article>
-        </div>
-      </section>
+      <section class="panel preview-panel" aria-labelledby="preview-heading"><h2 id="preview-heading">Pratinjau dokumen</h2><div class="preview-wrap">
+        <article id="invoice-template" class="invoice">
+          <div class="inv-header"><div><div class="inv-title">INVOICE</div><div class="inv-number" id="out-number"></div></div><div><img id="out-logo" class="inv-logo" alt="Logo bisnis"><div class="sender-preview" id="out-sender"></div><div class="sender-preview" id="out-sender-detail" style="font-weight:400;font-size:.82rem"></div></div></div>
+          <div class="inv-details"><div><div class="label-muted">Ditagihkan kepada</div><strong id="out-receiver"></strong><div id="out-receiver-detail" style="white-space:pre-line"></div></div><div><div class="label-muted">Tanggal invoice</div><div id="out-date"></div><div id="due-wrap" style="margin-top:8px"><div class="label-muted">Jatuh tempo</div><div id="out-due"></div></div></div></div>
+          <table class="inv-table"><thead><tr><th>Deskripsi</th><th class="right">Jumlah</th><th class="right">Harga</th><th class="right">Total</th></tr></thead><tbody id="out-items"></tbody></table>
+          <div class="totals"><div class="total-row"><span>Subtotal</span><strong id="out-subtotal"></strong></div><div class="total-row" id="tax-row"><span id="out-tax-label">Pajak</span><strong id="out-tax"></strong></div><div class="total-row" id="discount-row"><span>Diskon</span><strong id="out-discount"></strong></div><div class="total-row grand-total"><span>Total</span><strong id="out-total"></strong></div></div><div class="notes-preview" id="out-notes"></div>
+        </article>
+      </div></section>
     </div>
-
-    <!-- Slot iklan kedua (opsional): gunakan unit iklan Adsterra sesuai tata letak dan kebijakan situs Anda. -->
     <div class="ad-slot" aria-label="Area iklan"><div><strong>Ruang Iklan</strong><small>Slot opsional — tempel kode unit Adsterra Anda</small></div></div>
   </main>
   <footer class="footer">InvoiceKita — draft tersimpan secara lokal di browser. Periksa kembali detail invoice dan kewajiban pajak sebelum mengirim.</footer>
 <script>
-  const $ = (id) => document.getElementById(id);
-  const itemsEl = $('items');
-  const STORAGE_KEY = 'invoicekita-draft-v1';
-  const THEMES = { corporate:'#183b66', emerald:'#176b55', burgundy:'#792b3d', charcoal:'#374151' };
-  const DEFAULT_TABLE = { header:'#183b66', text:'#ffffff', row:'#f5f8fb' };
-  let logoData = '';
-  let saveTimer;
-  const money = (value) => new Intl.NumberFormat('id-ID', { style:'currency', currency:$('currency').value, maximumFractionDigits:2 }).format(Number.isFinite(value) ? value : 0);
+  const $ = id => document.getElementById(id);
+  const itemsEl = $('items'), STORAGE_KEY = 'invoicekita-draft-v1';
+  const THEMES = {corporate:'#183b66',emerald:'#176b55',burgundy:'#792b3d',charcoal:'#374151'};
+  const DEFAULT_TABLE = {header:'#183b66',text:'#ffffff',row:'#f5f8fb'};
+  let logoData = '', saveTimer;
   const validHex = value => /^#[0-9a-f]{6}$/i.test(value || '');
-
-  function blendHex(hex, amount) {
-    const value = hex.replace('#','');
-    const channels = [0,2,4].map(i => parseInt(value.slice(i,i+2),16));
-    return `#${channels.map(channel => Math.round(channel * (1-amount)).toString(16).padStart(2,'0')).join('')}`;
-  }
-  function contrastText(hex) {
-    const value = hex.replace('#','');
-    const [r,g,b] = [0,2,4].map(i => parseInt(value.slice(i,i+2),16) / 255).map(v => v <= .03928 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4);
-    return .2126*r + .7152*g + .0722*b > .42 ? '#172b45' : '#ffffff';
-  }
-  function applyTheme(color, tableColors = null) {
-    if (!validHex(color)) color = THEMES.corporate;
-    const root = document.documentElement;
-    root.style.setProperty('--brand',color);
-    root.style.setProperty('--brand-dark',blendHex(color,.28));
-    root.style.setProperty('--brand-border',blendHex(color,.12));
-    root.style.setProperty('--brand-soft',blendHex(color,.93));
-    $('theme-preview').style.backgroundColor = color;
-    $('custom-color').value = color;
-    const table = tableColors || { header:color, text:contrastText(color), row:blendHex(color,.96) };
-    setTableColors(table);
-  }
-  function setTableColors(table) {
-    const colors = {
-      header: validHex(table.header) ? table.header : DEFAULT_TABLE.header,
-      text: validHex(table.text) ? table.text : DEFAULT_TABLE.text,
-      row: validHex(table.row) ? table.row : DEFAULT_TABLE.row
-    };
-    document.documentElement.style.setProperty('--table-head-bg',colors.header);
-    document.documentElement.style.setProperty('--table-head-text',colors.text);
-    document.documentElement.style.setProperty('--table-row-bg',colors.row);
-    $('table-head-bg').value = colors.header; $('table-head-text').value = colors.text; $('table-row-bg').value = colors.row;
-  }
-  function collectDraft() {
-    const fields = ['inv-num','inv-date','due-date','currency','sender','receiver','sender-detail','receiver-detail','tax','discount'];
-    const values = Object.fromEntries(fields.map(id => [id,$(id).value]));
-    values.notes = sanitizeNotes($('notes-editor').innerHTML);
-    const items = [...itemsEl.children].map(row => { const inputs = row.querySelectorAll('input'); return { description:inputs[0].value, quantity:inputs[1].value, price:inputs[2].value }; });
-    const table = { header:$('table-head-bg').value, text:$('table-head-text').value, row:$('table-row-bg').value };
-    return { version:2, values, items, logo:logoData, theme:{ preset:$('theme-select').value, color:$('custom-color').value, table } };
-  }
-  function saveDraft() {
-    clearTimeout(saveTimer);
-    $('save-state').textContent = 'Menyimpan draft…';
-    saveTimer = setTimeout(() => {
-      try { localStorage.setItem(STORAGE_KEY,JSON.stringify(collectDraft())); $('save-state').textContent = 'Tersimpan otomatis di browser'; }
-      catch (error) { $('save-state').textContent = 'Penyimpanan browser penuh atau tidak tersedia'; }
-    },250);
-  }
-  function loadDraft() {
-    try {
-      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
-      if (!saved || ![1,2].includes(saved.version) || !saved.values) return false;
-      Object.entries(saved.values).forEach(([id,value]) => {
-        if (id === 'notes') {
-          if (saved.version === 1) $('notes-editor').textContent = value ?? '';
-          else $('notes-editor').innerHTML = sanitizeNotes(value || '');
-        } else if ($(id)) $(id).value = value ?? '';
-      });
-      logoData = typeof saved.logo === 'string' ? saved.logo : '';
-      if (logoData) showLogo(logoData);
-      if (saved.theme && typeof saved.theme === 'object') {
-        const preset = Object.hasOwn(THEMES,saved.theme.preset) ? saved.theme.preset : 'custom';
-        const color = validHex(saved.theme.color) ? saved.theme.color : (THEMES[preset] || THEMES.corporate);
-        $('theme-select').value = preset;
-        applyTheme(color,saved.theme.table || null);
-      } else applyTheme(THEMES.corporate);
-      if (Array.isArray(saved.items) && saved.items.length) saved.items.slice(0,100).forEach(item => addItem(item.description || '',item.quantity || 0,item.price || ''));
-      return true;
-    } catch (error) { return false; }
-  }
-  function addItem(description = '', quantity = 1, price = '') {
-    const row = document.createElement('div'); row.className = 'item-row';
-    const desc = document.createElement('input'); desc.type = 'text'; desc.placeholder = 'Nama produk / layanan'; desc.setAttribute('aria-label','Deskripsi item'); desc.value = description;
-    const qty = document.createElement('input'); qty.type = 'number'; qty.min = '0'; qty.step = '1'; qty.value = quantity; qty.setAttribute('aria-label','Jumlah');
-    const amount = document.createElement('input'); amount.type = 'number'; amount.min = '0'; amount.step = 'any'; amount.placeholder = '0'; amount.value = price; amount.setAttribute('aria-label','Harga satuan');
-    const remove = document.createElement('button'); remove.type = 'button'; remove.className = 'remove-btn'; remove.textContent = '×'; remove.setAttribute('aria-label','Hapus item'); remove.addEventListener('click',() => { if (itemsEl.children.length > 1) { row.remove(); updateInvoice(); } });
-    [desc,qty,amount].forEach(input => input.addEventListener('input',updateInvoice));
-    row.append(desc,qty,amount,remove); itemsEl.appendChild(row); updateInvoice();
-  }
-  function setText(id,value) { $(id).textContent = value; }
-  function showLogo(data) {
-    $('logo-thumb').src = data; $('logo-thumb').hidden = !data;
-    $('out-logo').src = data; $('out-logo').style.display = data ? 'block' : 'none';
-  }
-  function sanitizeNotes(html) {
-    const parsed = new DOMParser().parseFromString(String(html),'text/html');
-    const output = document.createDocumentFragment();
-    function copyChildren(source,target) {
-      [...source.childNodes].forEach(node => {
-        if (node.nodeType === Node.TEXT_NODE) { target.appendChild(document.createTextNode(node.nodeValue)); return; }
-        if (node.nodeType !== Node.ELEMENT_NODE) return;
-        const tag = node.tagName.toLowerCase();
-        if (tag === 'br') { target.appendChild(document.createElement('br')); return; }
-        if (tag === 'a') {
-          const href = safeLink(node.getAttribute('href') || '');
-          if (!href) { copyChildren(node,target); return; }
-          const anchor = document.createElement('a'); anchor.href = href; anchor.target = '_blank'; anchor.rel = 'noopener noreferrer';
-          copyChildren(node,anchor); target.appendChild(anchor); return;
-        }
-        if (['b','strong','i','em','u'].includes(tag)) {
-          const clean = document.createElement(tag); copyChildren(node,clean); target.appendChild(clean); return;
-        }
-        if (['div','p'].includes(tag)) { copyChildren(node,target); target.appendChild(document.createElement('br')); return; }
-        copyChildren(node,target);
-      });
-    }
-    copyChildren(parsed.body,output);
-    const holder = document.createElement('div'); holder.appendChild(output); return holder.innerHTML;
-  }
-  function safeLink(raw) {
-    try { const url = new URL(raw,window.location.href); return ['http:','https:','mailto:'].includes(url.protocol) ? url.href : ''; }
-    catch (error) { return ''; }
-  }
-  function updateInvoice() {
-    setText('out-number',$('inv-num').value || '—'); setText('out-sender',$('sender').value || '—'); setText('out-sender-detail',$('sender-detail').value);
-    setText('out-receiver',$('receiver').value || '—'); setText('out-receiver-detail',$('receiver-detail').value);
-    const date = $('inv-date').value; setText('out-date',date ? new Date(date+'T00:00:00').toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'}) : '—');
-    const due = $('due-date').value; $('due-wrap').hidden = !due; setText('out-due',due ? new Date(due+'T00:00:00').toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'}) : '');
-    let subtotal = 0; const body = $('out-items'); body.replaceChildren();
-    [...itemsEl.children].forEach(row => {
-      const [desc,qtyEl,priceEl] = row.querySelectorAll('input'); const qty = Math.max(0,Number(qtyEl.value)||0); const price = Math.max(0,Number(priceEl.value)||0); const line = qty*price; subtotal += line;
-      const tr = document.createElement('tr'); [desc.value || 'Item',String(qty),money(price),money(line)].forEach((value,i) => { const td = document.createElement('td'); td.textContent = value; if (i>0) td.className = 'right'; tr.appendChild(td); }); body.appendChild(tr);
-    });
-    const taxRate = Math.min(100,Math.max(0,Number($('tax').value)||0)); const discount = Math.min(subtotal,Math.max(0,Number($('discount').value)||0)); const tax = (subtotal-discount)*taxRate/100;
-    setText('out-subtotal',money(subtotal)); setText('out-tax-label',`Pajak (${taxRate}%)`); setText('out-tax',money(tax)); setText('out-discount','− '+money(discount)); setText('out-total',money(subtotal-discount+tax));
-    $('tax-row').hidden = taxRate===0; $('discount-row').hidden = discount===0; $('out-notes').innerHTML = sanitizeNotes($('notes-editor').innerHTML);
-    document.documentElement.lang = $('currency').value === 'IDR' ? 'id' : 'en';
-    saveDraft();
-  }
-  function safeFilename(value) { const cleaned = value.trim().replace(/[^a-zA-Z0-9._-]+/g,'-').replace(/^-+|-+$/g,''); return (cleaned || 'invoice').slice(0,80)+'.pdf'; }
-  function restoreEditorSelection() { $('notes-editor').focus(); }
-
-  $('add-item').addEventListener('click',() => addItem());
-  document.querySelectorAll('.form-panel input:not([aria-label]), .form-panel textarea, .form-panel select').forEach(el => el.addEventListener('input',updateInvoice));
-  $('currency').addEventListener('change',updateInvoice);
-  $('theme-select').addEventListener('change',() => {
-    const preset = $('theme-select').value;
-    if (THEMES[preset]) applyTheme(THEMES[preset]);
-    else applyTheme($('custom-color').value,{header:$('table-head-bg').value,text:$('table-head-text').value,row:$('table-row-bg').value});
-    updateInvoice();
-  });
-  $('custom-color').addEventListener('input',() => {
-    $('theme-select').value = 'custom';
-    applyTheme($('custom-color').value);
-    updateInvoice();
-  });
-  ['table-head-bg','table-head-text','table-row-bg'].forEach(id => $(id).addEventListener('input',() => {
-    $('theme-select').value = 'custom';
-    setTableColors({header:$('table-head-bg').value,text:$('table-head-text').value,row:$('table-row-bg').value});
-    updateInvoice();
-  }));
-  $('notes-editor').addEventListener('input',updateInvoice);
-  document.querySelectorAll('[data-format]').forEach(button => button.addEventListener('click',() => {
-    restoreEditorSelection(); document.execCommand(button.dataset.format,false,null); updateInvoice();
-  }));
-  $('add-note-link').addEventListener('click',() => {
-    restoreEditorSelection();
-    const selection = window.getSelection(); const selectedText = selection ? selection.toString().trim() : '';
-    const entered = window.prompt('Masukkan URL (https://, http://, atau mailto:):'); if (!entered) return;
-    const href = safeLink(entered.trim());
-    if (!href || !/^https?:\/\//i.test(href) && !/^mailto:/i.test(href)) { $('status').textContent = 'Tautan harus menggunakan http://, https://, atau mailto:.'; return; }
-    $('status').textContent = '';
-    if (selectedText) document.execCommand('createLink',false,href);
-    else {
-      const label = window.prompt('Teks tautan:',href); if (!label) return;
-      const anchor = document.createElement('a'); anchor.href = href; anchor.target = '_blank'; anchor.rel = 'noopener noreferrer'; anchor.textContent = label;
-      const range = selection && selection.rangeCount ? selection.getRangeAt(0) : null;
-      if (range && $('notes-editor').contains(range.commonAncestorContainer)) { range.insertNode(anchor); range.setStartAfter(anchor); range.collapse(true); selection.removeAllRanges(); selection.addRange(range); }
-      else $('notes-editor').appendChild(anchor);
-    }
-    updateInvoice();
-  });
-  $('notes-editor').addEventListener('paste',event => {
-    event.preventDefault(); const text = (event.clipboardData || window.clipboardData).getData('text/plain'); document.execCommand('insertText',false,text);
-  });
-  $('logo-upload').addEventListener('change',async event => {
-    const file = event.target.files && event.target.files[0]; if (!file) return;
-    if (!['image/png','image/jpeg','image/webp'].includes(file.type) || file.size>5*1024*1024) { $('status').textContent = 'Pilih file PNG, JPG, atau WebP dengan ukuran maksimal 5 MB.'; event.target.value = ''; return; }
-    try {
-      const bitmap = await createImageBitmap(file); const scale = Math.min(1,900/bitmap.width,500/bitmap.height); const canvas = document.createElement('canvas'); canvas.width = Math.max(1,Math.round(bitmap.width*scale)); canvas.height = Math.max(1,Math.round(bitmap.height*scale));
-      const context = canvas.getContext('2d'); context.fillStyle = '#ffffff'; context.fillRect(0,0,canvas.width,canvas.height); context.drawImage(bitmap,0,0,canvas.width,canvas.height); bitmap.close();
-      logoData = canvas.toDataURL('image/jpeg',.82); showLogo(logoData); $('status').textContent = ''; updateInvoice();
-    } catch (error) { $('status').textContent = 'Logo tidak dapat dibuka. Coba pilih file gambar lain.'; }
-  });
-  $('clear-draft').addEventListener('click',() => {
-    if (!window.confirm('Hapus draft tersimpan dan mulai invoice baru?')) return;
-    try { localStorage.removeItem(STORAGE_KEY); } catch (error) {}
-    window.location.reload();
-  });
-  $('download').addEventListener('click',async () => {
-    const status = $('status'); status.textContent = '';
-    if (!window.html2pdf) { status.textContent = 'PDF-tool belum termuat. Periksa koneksi internet, lalu coba lagi.'; return; }
-    const button = $('download'); button.disabled = true; button.textContent = 'Menyiapkan PDF…';
-    try { await html2pdf().set({margin:12,filename:safeFilename($('inv-num').value),image:{type:'jpeg',quality:.98},html2canvas:{scale:2,useCORS:true},jsPDF:{unit:'mm',format:'a4',orientation:'portrait'}}).from($('invoice-template')).save(); }
-    catch (error) { status.textContent = 'PDF gagal dibuat. Silakan coba tombol cetak atau muat ulang halaman.'; }
-    finally { button.disabled = false; button.textContent = 'Unduh PDF'; }
-  });
-  $('print').addEventListener('click',() => window.print());
-
-  const hasDraft = loadDraft();
-  if (!hasDraft) {
-    const today = new Date(); $('inv-date').value = new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().slice(0,10);
-    $('theme-select').value = 'corporate'; applyTheme(THEMES.corporate); addItem('Jasa Pembuatan Website & Desain',1,1500000);
-  }
-  updateInvoice();
+  const money = value => new Intl.NumberFormat('id-ID',{style:'currency',currency:$('currency').value,maximumFractionDigits:2}).format(Number.isFinite(value)?value:0);
+  function blendHex(hex,amount){const v=hex.replace('#',''),c=[0,2,4].map(i=>parseInt(v.slice(i,i+2),16));return '#'+c.map(x=>Math.round(x*(1-amount)).toString(16).padStart(2,'0')).join('')}
+  function contrastText(hex){const v=hex.replace('#',''),c=[0,2,4].map(i=>parseInt(v.slice(i,i+2),16)/255).map(x=>x<=.03928?x/12.92:((x+.055)/1.055)**2.4);return .2126*c[0]+.7152*c[1]+.0722*c[2]>.42?'#172b45':'#fff'}
+  function setTableColors(t){const c={header:validHex(t.header)?t.header:DEFAULT_TABLE.header,text:validHex(t.text)?t.text:DEFAULT_TABLE.text,row:validHex(t.row)?t.row:DEFAULT_TABLE.row};document.documentElement.style.setProperty('--table-head-bg',c.header);document.documentElement.style.setProperty('--table-head-text',c.text);document.documentElement.style.setProperty('--table-row-bg',c.row);$('table-head-bg').value=c.header;$('table-head-text').value=c.text;$('table-row-bg').value=c.row}
+  function applyTheme(color,table=null){if(!validHex(color))color=THEMES.corporate;const root=document.documentElement;root.style.setProperty('--brand',color);root.style.setProperty('--brand-dark',blendHex(color,.28));root.style.setProperty('--brand-border',blendHex(color,.12));root.style.setProperty('--brand-soft',blendHex(color,.93));$('theme-preview').style.backgroundColor=color;$('custom-color').value=color;setTableColors(table||{header:color,text:contrastText(color),row:blendHex(color,.96)})}
+  function safeLink(raw){try{const u=new URL(raw,location.href);return ['http:','https:','mailto:'].includes(u.protocol)?u.href:''}catch(e){return ''}}
+  function sanitizeNotes(html){const doc=new DOMParser().parseFromString(String(html),'text/html'),holder=document.createElement('div');function copy(src,dst){[...src.childNodes].forEach(n=>{if(n.nodeType===Node.TEXT_NODE){dst.append(document.createTextNode(n.nodeValue));return}if(n.nodeType!==Node.ELEMENT_NODE)return;const tag=n.tagName.toLowerCase();if(tag==='br'){dst.append(document.createElement('br'));return}if(tag==='a'){const href=safeLink(n.getAttribute('href')||'');if(!href){copy(n,dst);return}const a=document.createElement('a');a.href=href;a.target='_blank';a.rel='noopener noreferrer';copy(n,a);dst.append(a);return}if(['b','strong','i','em','u'].includes(tag)){const el=document.createElement(tag);copy(n,el);dst.append(el);return}if(['div','p'].includes(tag)){copy(n,dst);dst.append(document.createElement('br'));return}copy(n,dst)})}copy(doc.body,holder);return holder.innerHTML}
+  function collectDraft(){const fields=['inv-num','inv-date','due-date','currency','sender','receiver','sender-detail','receiver-detail','tax','discount'];const values=Object.fromEntries(fields.map(id=>[id,$(id).value]));values.notes=sanitizeNotes($('notes-editor').innerHTML);const items=[...itemsEl.children].map(row=>{const i=row.querySelectorAll('input');return{description:i[0].value,quantity:i[1].value,price:i[2].value}});return{version:2,values,items,logo:logoData,theme:{preset:$('theme-select').value,color:$('custom-color').value,table:{header:$('table-head-bg').value,text:$('table-head-text').value,row:$('table-row-bg').value}}}}
+  function saveDraft(){clearTimeout(saveTimer);$('save-state').textContent='Menyimpan draft…';saveTimer=setTimeout(()=>{try{localStorage.setItem(STORAGE_KEY,JSON.stringify(collectDraft()));$('save-state').textContent='Tersimpan otomatis di browser'}catch(e){$('save-state').textContent='Penyimpanan browser penuh atau tidak tersedia'}},250)}
+  function loadDraft(){try{const d=JSON.parse(localStorage.getItem(STORAGE_KEY)||'null');if(!d||![1,2].includes(d.version)||!d.values)return false;Object.entries(d.values).forEach(([id,v])=>{if(id==='notes')$('notes-editor').innerHTML=d.version===1?'':sanitizeNotes(v||'');else if($(id))$(id).value=v??'';if(id==='notes'&&d.version===1)$('notes-editor').textContent=v??''});logoData=typeof d.logo==='string'?d.logo:'';if(logoData)showLogo(logoData);if(d.theme){const p=Object.hasOwn(THEMES,d.theme.preset)?d.theme.preset:'custom';$('theme-select').value=p;applyTheme(validHex(d.theme.color)?d.theme.color:THEMES[p]||THEMES.corporate,d.theme.table||null)}else applyTheme(THEMES.corporate);if(Array.isArray(d.items)&&d.items.length)d.items.slice(0,100).forEach(i=>addItem(i.description||'',i.quantity||0,i.price||''));return true}catch(e){return false}}
+  function addItem(description='',quantity=1,price=''){const row=document.createElement('div');row.className='item-row';const d=document.createElement('input');d.type='text';d.placeholder='Nama produk / layanan';d.setAttribute('aria-label','Deskripsi item');d.value=description;const q=document.createElement('input');q.type='number';q.min='0';q.step='1';q.value=quantity;q.setAttribute('aria-label','Jumlah');const p=document.createElement('input');p.type='number';p.min='0';p.step='any';p.placeholder='0';p.value=price;p.setAttribute('aria-label','Harga satuan');const rm=document.createElement('button');rm.type='button';rm.className='remove-btn';rm.textContent='×';rm.setAttribute('aria-label','Hapus item');rm.addEventListener('click',()=>{if(itemsEl.children.length>1){row.remove();updateInvoice()}});[d,q,p].forEach(el=>el.addEventListener('input',updateInvoice));row.append(d,q,p,rm);itemsEl.append(row);updateInvoice()}
+  function showLogo(data){$('logo-thumb').src=data;$('logo-thumb').hidden=!data;$('out-logo').src=data;$('out-logo').style.display=data?'block':'none'}
+  function updateInvoice(){const set=(id,v)=>$(id).textContent=v;set('out-number',$('inv-num').value||'—');set('out-sender',$('sender').value||'—');set('out-sender-detail',$('sender-detail').value);set('out-receiver',$('receiver').value||'—');set('out-receiver-detail',$('receiver-detail').value);const date=$('inv-date').value,due=$('due-date').value;set('out-date',date?new Date(date+'T00:00:00').toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'}):'—');$('due-wrap').hidden=!due;set('out-due',due?new Date(due+'T00:00:00').toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'}):'');let subtotal=0;const body=$('out-items');body.replaceChildren();[...itemsEl.children].forEach(row=>{const[d,q,p]=row.querySelectorAll('input'),qty=Math.max(0,Number(q.value)||0),price=Math.max(0,Number(p.value)||0),line=qty*price;subtotal+=line;const tr=document.createElement('tr');[d.value||'Item',String(qty),money(price),money(line)].forEach((v,i)=>{const td=document.createElement('td');td.textContent=v;if(i)td.className='right';tr.append(td)});body.append(tr)});const rate=Math.min(100,Math.max(0,Number($('tax').value)||0)),discount=Math.min(subtotal,Math.max(0,Number($('discount').value)||0)),tax=(subtotal-discount)*rate/100;set('out-subtotal',money(subtotal));set('out-tax-label',`Pajak (${rate}%)`);set('out-tax',money(tax));set('out-discount','− '+money(discount));set('out-total',money(subtotal-discount+tax));$('tax-row').hidden=rate===0;$('discount-row').hidden=discount===0;$('out-notes').innerHTML=sanitizeNotes($('notes-editor').innerHTML);document.documentElement.lang=$('currency').value==='IDR'?'id':'en';saveDraft()}
+  function safeFilename(value){const s=value.trim().replace(/\.pdf$/i,'').replace(/[^a-zA-Z0-9._-]+/g,'-').replace(/^-+|-+$/g,'');return(s||'invoice').slice(0,80)+'.pdf'}
+  function preparePdfClone(){const source=$('invoice-template'),clone=source.cloneNode(true),table=clone.querySelector('.inv-table');clone.removeAttribute('id');clone.style.cssText='width:186mm;min-height:0;padding:0;margin:0;border:0;background:#fff;color:#24354a;box-sizing:border-box;font-family:Arial,sans-serif;font-size:12px;line-height:1.45;';clone.querySelectorAll('.inv-header').forEach(el=>{el.style.borderBottom=`2px solid ${getComputedStyle(document.documentElement).getPropertyValue('--brand-border').trim()}`;el.style.paddingBottom='14px'});clone.querySelectorAll('.inv-title,.grand-total').forEach(el=>el.style.color=getComputedStyle(document.documentElement).getPropertyValue('--brand').trim());clone.querySelectorAll('.inv-table').forEach(t=>{t.style.width='100%';t.style.tableLayout='fixed';t.style.borderCollapse='collapse';t.style.margin='18px 0'});const headBg=$('table-head-bg').value,headText=$('table-head-text').value,rowBg=$('table-row-bg').value;table.querySelectorAll('th').forEach(th=>{th.style.setProperty('background-color',headBg,'important');th.style.setProperty('color',headText,'important');th.style.setProperty('print-color-adjust','exact');th.style.padding='9px 7px';th.style.border='1px solid #dfe6ee'});table.querySelectorAll('td').forEach(td=>{td.style.setProperty('background-color',rowBg,'important');td.style.setProperty('color','#24354a','important');td.style.setProperty('print-color-adjust','exact');td.style.padding='9px 7px';td.style.border='1px solid #dfe6ee'});clone.querySelectorAll('a').forEach(a=>{a.style.color=getComputedStyle(document.documentElement).getPropertyValue('--brand').trim();a.style.textDecoration='underline'});clone.querySelectorAll('[hidden]').forEach(el=>el.remove());return clone}
+  $('add-item').addEventListener('click',()=>addItem());document.querySelectorAll('.form-panel input:not([aria-label]),.form-panel textarea,.form-panel select').forEach(el=>el.addEventListener('input',updateInvoice));$('currency').addEventListener('change',updateInvoice);
+  $('theme-select').addEventListener('change',()=>{const p=$('theme-select').value;if(THEMES[p])applyTheme(THEMES[p]);else applyTheme($('custom-color').value,{header:$('table-head-bg').value,text:$('table-head-text').value,row:$('table-row-bg').value});updateInvoice()});$('custom-color').addEventListener('input',()=>{$('theme-select').value='custom';applyTheme($('custom-color').value);updateInvoice()});
+  ['table-head-bg','table-head-text','table-row-bg'].forEach(id=>$(id).addEventListener('input',()=>{$('theme-select').value='custom';setTableColors({header:$('table-head-bg').value,text:$('table-head-text').value,row:$('table-row-bg').value});updateInvoice()}));
+  $('notes-editor').addEventListener('input',updateInvoice);document.querySelectorAll('[data-format]').forEach(b=>b.addEventListener('click',()=>{$('notes-editor').focus();document.execCommand(b.dataset.format,false,null);updateInvoice()}));
+  $('add-note-link').addEventListener('click',()=>{$('notes-editor').focus();const sel=getSelection(),selected=sel?sel.toString().trim():'';const value=prompt('Masukkan URL (https://, http://, atau mailto:):');if(!value)return;const href=safeLink(value.trim());if(!href||(!/^https?:\/\//i.test(href)&&!/^mailto:/i.test(href))){$('status').textContent='Tautan harus menggunakan http://, https://, atau mailto:.';return}$('status').textContent='';if(selected)document.execCommand('createLink',false,href);else{const label=prompt('Teks tautan:',href);if(!label)return;const a=document.createElement('a');a.href=href;a.target='_blank';a.rel='noopener noreferrer';a.textContent=label;const range=sel&&sel.rangeCount?sel.getRangeAt(0):null;if(range&&$('notes-editor').contains(range.commonAncestorContainer)){range.insertNode(a);range.setStartAfter(a);range.collapse(true);sel.removeAllRanges();sel.addRange(range)}else $('notes-editor').append(a)}updateInvoice()});$('notes-editor').addEventListener('paste',e=>{e.preventDefault();document.execCommand('insertText',false,(e.clipboardData||clipboardData).getData('text/plain'))});
+  $('logo-upload').addEventListener('change',async e=>{const f=e.target.files&&e.target.files[0];if(!f)return;if(!['image/png','image/jpeg','image/webp'].includes(f.type)||f.size>5*1024*1024){$('status').textContent='Pilih file PNG, JPG, atau WebP dengan ukuran maksimal 5 MB.';e.target.value='';return}try{const bmp=await createImageBitmap(f),scale=Math.min(1,900/bmp.width,500/bmp.height),canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(bmp.width*scale));canvas.height=Math.max(1,Math.round(bmp.height*scale));const ctx=canvas.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.drawImage(bmp,0,0,canvas.width,canvas.height);bmp.close();logoData=canvas.toDataURL('image/jpeg',.82);showLogo(logoData);$('status').textContent='';updateInvoice()}catch(err){$('status').textContent='Logo tidak dapat dibuka. Coba pilih file gambar lain.'}});
+  $('clear-draft').addEventListener('click',()=>{if(!confirm('Hapus draft tersimpan dan mulai invoice baru?'))return;try{localStorage.removeItem(STORAGE_KEY)}catch(e){}location.reload()});
+  $('download').addEventListener('click',async()=>{const status=$('status'),button=$('download');status.textContent='';if(!window.html2pdf){status.textContent='PDF-tool belum termuat. Periksa koneksi internet, lalu coba lagi.';return}button.disabled=true;button.textContent='Menyiapkan PDF…';let clone,url;try{clone=preparePdfClone();clone.style.position='fixed';clone.style.left='-10000px';clone.style.top='0';clone.style.zIndex='-1';document.body.appendChild(clone);const logo=clone.querySelector('#out-logo');if(logo&&logo.src)try{await logo.decode()}catch(e){}const options={margin:[12,12,12,12],filename:safeFilename($('inv-num').value),image:{type:'jpeg',quality:.98},html2canvas:{scale:2,useCORS:true,backgroundColor:'#ffffff',logging:false,scrollX:0,scrollY:0},jsPDF:{unit:'mm',format:'a4',orientation:'portrait'},pagebreak:{mode:['css','legacy']}};const blob=await html2pdf().set(options).from(clone).outputPdf('blob');if(!(blob instanceof Blob)||blob.size<1000)throw new Error('Empty PDF output');url=URL.createObjectURL(blob);const link=document.createElement('a');link.href=url;link.download=options.filename;link.style.display='none';document.body.append(link);link.click();link.remove();status.style.color='#276749';status.textContent='PDF berhasil dibuat. Periksa folder unduhan browser Anda.';setTimeout(()=>URL.revokeObjectURL(url),60000)}catch(err){console.error('PDF export failed:',err);status.style.color='var(--red)';status.textContent='PDF tidak berhasil dibuat. Pastikan koneksi internet aktif dan coba lagi, atau gunakan Cetak invoice → Save as PDF.'}finally{if(clone)clone.remove();button.disabled=false;button.textContent='Unduh PDF'}});
+  $('print').addEventListener('click',()=>window.print());
+  const hasDraft=loadDraft();if(!hasDraft){const now=new Date();$('inv-date').value=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,10);$('theme-select').value='corporate';applyTheme(THEMES.corporate);addItem('Jasa Pembuatan Website & Desain',1,1500000)}updateInvoice();
 </script>
 </body>
 </html>
